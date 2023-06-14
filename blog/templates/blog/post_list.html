@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <h1><a href="/">Mi blog</a></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur voluptates ullam aspernatur, nihil totam at? Magnam nisi suscipit quos illum corporis temporibus. Beatae, illum similique voluptatem accusantium iure sapiente ipsa?</p>
-    </div>
+{% extends 'base/base1.html' %}
 
-    <div>
-        <h2><a href="">Mi post 1</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur voluptates ullam aspernatur, nihil totam at? Magnam nisi suscipit quos illum corporis temporibus. Beatae, illum similique voluptatem accusantium iure sapiente ipsa?</p>
+{% block content %}
+{% for post in posts %}
+    <div class="post">
+        <p><h6>publicado: {{ post.published_date }}</h6></p>
+        <h2><a href="/detalle/{{ post.title }}">🖹 {{ post.title }}</a></h2>
     </div>
-    
-    <div>
-        <h2><a href="">Mi blog 2</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur voluptates ullam aspernatur, nihil totam at? Magnam nisi suscipit quos illum corporis temporibus. Beatae, illum similique voluptatem accusantium iure sapiente ipsa?</p>
-    </div>
-    
-    
-</body>
-</html>
+{% endfor %}
+{% endblock %}
+
